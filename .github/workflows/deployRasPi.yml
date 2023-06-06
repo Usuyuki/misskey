@@ -18,6 +18,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
+          command_timeout: 60m # デフォルトの10分ではmisskeyのビルドが終わる前に落ちるので……
           script: |
             echo "START🚀"
             echo "${{ secrets.SERVER_USER_PASSWORD }}" | sudo -S systemctl stop misskey
